@@ -1,12 +1,18 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 import 'codescreen.dart';
-
-String url = 'https://elmonofey.com/home';
+//
+String url = 'https://almonofey.com/home';
 class MainScreen extends StatelessWidget {
    MainScreen({Key? key}) : super(key: key);
+   String whatsAppUrl = "";
+   String num = "01150168688";
+   String description = "go";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,13 +23,12 @@ class MainScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Image.asset('assets/Logo.png',scale: 8,),
+              Image.asset('assets/logoo.png',scale: 5,),
               MaterialButton(
-                  onPressed: ()async{
-                    await launchUrl(Uri.parse(url));
+                  onPressed: () async {
+                    await launchUrl(Uri.parse("https://almonofey.com/login"),mode: LaunchMode.externalApplication);
                   },
                   child: Container(
-                    //height: 120,
                     width: 240,
                     padding: EdgeInsets.symmetric(horizontal: 20,vertical: 14),
                     alignment: Alignment.center,
@@ -33,19 +38,18 @@ class MainScreen extends StatelessWidget {
                             start: Radius.circular(40),
                             end: Radius.circular(40))),
                     child: Text(
-                      "الدخول للموقع",
+                      "الطالب",
                       style: TextStyle(
                         color: Color(0xfff2c668),
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'cairo',
 
+
                       ),
                     ),
                   )),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20,),
               MaterialButton(
                   onPressed: (){
                     Navigator.push(context, MaterialPageRoute(builder: (context)=>CodeScreen()));
@@ -60,7 +64,7 @@ class MainScreen extends StatelessWidget {
                             start: Radius.circular(40),
                             end: Radius.circular(40))),
                     child: Text(
-                      "بيانات الطالب",
+                      "ولي الأمر",
                       style: TextStyle(
                         color: Color(0xfff2c668),
                         fontSize: 25,
@@ -72,6 +76,34 @@ class MainScreen extends StatelessWidget {
                     ),
                   )),
               SizedBox(height: 20,),
+              MaterialButton(
+                  onPressed: ()async{
+                    await launchUrl(Uri.parse(url),mode: LaunchMode.externalApplication);
+                  },
+                  child: Container(
+                    //height: 120,
+                    width: 240,
+                    padding: EdgeInsets.symmetric(horizontal: 20,vertical: 14),
+                    alignment: Alignment.center,
+                    decoration: BoxDecoration(
+                        color: Color(0xff000000),
+                        borderRadius: BorderRadiusDirectional.horizontal(
+                            start: Radius.circular(40),
+                            end: Radius.circular(40))),
+                    child: Text(
+                      "الدخول للمنصه",
+                      style: TextStyle(
+                        color: Color(0xfff2c668),
+                        fontSize: 25,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'cairo',
+
+                      ),
+                    ),
+                  )),
+              SizedBox(
+                height: 20,
+              ),
               // Divider(
               //   height: 20,
               //   color: Color(0xfff2c668),
@@ -80,8 +112,8 @@ class MainScreen extends StatelessWidget {
               //   thickness: 2,
               // ),
               Padding(
-                padding: const EdgeInsets.only(top: 70.0),
-                child: Text("تواصل معنا",
+                padding: const EdgeInsets.only(top: 50.0),
+                child: Text("تواصل مع فريق العمل",
                 style: TextStyle(
                   fontSize: 25,
                   fontWeight: FontWeight.bold,
@@ -111,7 +143,7 @@ class MainScreen extends StatelessWidget {
                       ),
                       child: IconButton(
                         onPressed: ()async{
-                          await launchUrl(Uri.parse('https://www.youtube.com/channel/UCnIY1o6duzYNAP-lOxGJxig'));
+                          await launchUrl(Uri.parse('https://www.youtube.com/channel/UCnIY1o6duzYNAP-lOxGJxig'),mode: LaunchMode.externalApplication);
                         },
                         icon: SvgPicture.asset('assets/icons8-youtube.svg'
                           ,width: 30,height:30,
@@ -129,7 +161,7 @@ class MainScreen extends StatelessWidget {
                       ),
                       child: IconButton(
                         onPressed: ()async{
-                          await launchUrl(Uri.parse('almonofy11@gmail.com'));
+                          await launchUrl(Uri.parse('mailto:almonofy11@gmail.com'));
                         },
                         icon: SvgPicture.asset('assets/g.svg'
                           ,width: 30,height:30,
@@ -149,7 +181,25 @@ class MainScreen extends StatelessWidget {
                       ),
                       child: IconButton(
                         onPressed: ()async{
-                          await launchUrl(Uri.parse('https://api.whatsapp.com/send?phone=01501686888&amp;app=facebook&amp;entry_point=page_cta'));
+                        /*  if (Platform.isIOS) {
+                            whatsAppUrl =
+                            'whatsapp://wa.me/+201066343874';
+                          } else {
+                            whatsAppUrl =
+                            'https://api.whatsapp.com/send?phone=+201066343874';
+                          }
+
+                          if (await canLaunchUrlString(whatsAppUrl)) {
+                            await launchUrlString(whatsAppUrl,mode: LaunchMode.externalApplication);
+                          } else {
+                            final snackBar = SnackBar(
+                              content: Text("Install WhatsApp First Please"),
+                            );
+                            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                          }*/
+                          await launchUrlString("https://api.whatsapp.com/send?phone=+2$num",mode: LaunchMode.externalApplication);
+
+
                         },
                         icon: SvgPicture.asset('assets/icons8-whatsapp.svg'
                           ,width: 30,height:30,
@@ -168,7 +218,7 @@ class MainScreen extends StatelessWidget {
                       ),
                       child: IconButton(
                         onPressed: ()async{
-                          await launchUrl(Uri.parse('https://www.facebook.com/LeGeant11'));
+                          await launchUrl(Uri.parse('https://www.facebook.com/LeGeant11'),mode: LaunchMode.externalApplication);
                         },
                         icon: SvgPicture.asset('assets/f.svg'
                           ,width: 30,height:30,

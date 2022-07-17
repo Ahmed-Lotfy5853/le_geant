@@ -11,13 +11,13 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-List<Exam> Exams = [];
+// List<Exam> Exams = [];
 
-List<Practice> Practices = [];
-
-List<Attendance> Attendances = [];
-
-List<Hidden> Hiddens = [];
+// List<Practice> Practices = [];
+//
+// List<Attendance> Attendances = [];
+//
+// List<Hidden> Hiddens = [];
 Exam fi = Exam();
 Exam ex = Exam();
 Exam att = Exam();
