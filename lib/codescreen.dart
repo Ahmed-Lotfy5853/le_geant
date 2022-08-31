@@ -23,7 +23,7 @@ class CodeScreen extends StatefulWidget {
 class _CodeScreenState extends State<CodeScreen> {
   TextEditingController CodeController = TextEditingController();
   String whatsAppUrl = "";
-  String num = "01150168688";
+  String num = "01010340774";
 var k = GlobalKey<FormState>();
 
   @override
